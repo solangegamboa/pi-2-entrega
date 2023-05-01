@@ -10,19 +10,11 @@ if (isGithubActions) {
   basePath = `/${repo}`
 }
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    experimental: {
-        appDir: true,
-    },
-};
-
 module.exports = {
-    nextConfig: nextConfig,
-    assetPrefix: assetPrefix,
-    basePath: basePath,
-    images: {
-        loader: 'imgix',
-        path: 'the "domain" of your Imigix source',
-    }
-  }
+  assetPrefix: assetPrefix,
+  basePath: basePath,
+  images: {
+    loader: 'imgix',
+    path: 'the "domain" of your Imigix source',
+  },
+}
