@@ -7,7 +7,7 @@ if (isGithubActions) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
   assetPrefix = `/${repo}/`
-  basePath = `/${repo}/app`
+  basePath = `/${repo}`
 }
 
 /** @type {import('next').NextConfig} */
