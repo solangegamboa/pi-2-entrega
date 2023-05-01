@@ -1,5 +1,7 @@
 import React from "react";
 import './globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavGeral from "./components/Nav";
 
 export const metadata = {
     title: 'Projeto Integrador - 2',
@@ -14,8 +16,7 @@ export default function RootLayout({
     return (
         <html lang="pt-BR">
             <body>
-                <header>Nome do sistema</header>
-                Layout geral
+                <NavGeral></NavGeral>
                 {children}
             </body>
         </html>

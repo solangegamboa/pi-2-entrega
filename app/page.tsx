@@ -1,16 +1,14 @@
+'use client'
 import Link from "next/link";
 import React from "react";
+import Formulario from "./components/Formularios/Formulario";
+import { Container } from "react-bootstrap";
+import NavGeral from "./components/Nav";
 
 export default function Page() {
     return (
-        <section>
-            Escolher página
-            <ul>
-                {/* <li><Link href="/login">Login</Link></li> */}
-                <li><Link href="/cadastro">Cadastro</Link></li>
-                <li><Link href="/dashboard">Dashboard</Link></li>
-            </ul>
-        </section>
-
+        <Container>
+            <Formulario tipo={"login"} />
+        </Container>
     )
 }

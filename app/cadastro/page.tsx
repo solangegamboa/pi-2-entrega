@@ -1,5 +1,13 @@
+'use client'
 import React from "react";
+import Formulario from "../components/Formularios/Formulario";
+import { Container } from "react-bootstrap";
 
 export default function Page() {
-    return <h1>Fomulário de cadastro</h1>;
+    return (
+        <Container>
+            <Formulario tipo={"cadastro"} />
+        </Container>
+
+    )
 }
