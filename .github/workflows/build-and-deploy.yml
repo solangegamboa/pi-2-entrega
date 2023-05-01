@@ -20,7 +20,10 @@ jobs:
           # update the Node version to meet your needs
           node-version: 16
           cache: npm
-
+          
+      - name: Install dependencies
+        run: npm install
+        
       - name: Build
         run: |
           npm ci
