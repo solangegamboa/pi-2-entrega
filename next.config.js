@@ -15,6 +15,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  output: 'export',
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
