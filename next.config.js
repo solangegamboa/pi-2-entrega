@@ -10,7 +10,14 @@ if (isGithubActions) {
   basePath = `/${repo}`
 }
 
+const nextConfig = {
+    experimental: {
+        appDir: true,
+    },
+};
+
 module.exports = {
+  nextConfig,
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
