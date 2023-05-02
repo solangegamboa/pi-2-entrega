@@ -1,10 +1,9 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || false
+const isGitHubDeploy = process.env.GITHUB_DEPLOY
 
 let assetPrefix = ''
 let basePath = '/'
 
-if (isGithubActions) {
-  console.log(isGithubActions)
+if (isGitHubDeploy) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
   assetPrefix = `/${repo}/`
