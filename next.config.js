@@ -1,24 +1,22 @@
-const isGitHubDeploy = process.env.GITHUB_DEPLOY
-
-let assetPrefix = ''
-let basePath = '/'
-
-if (isGitHubDeploy) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
-
-  assetPrefix = `/${repo}/`
-  basePath = `/${repo}`
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     appDir: true,
   },
   output: 'export',
-  distDir: 'dist',
-  assetPrefix: assetPrefix,
-  basePath: basePath
+  assetPrefix: '/pi-2-entrega/',
+  basePath: '/pi-2-entrega'
 }
 
 module.exports = nextConfig
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   experimental: {
+//     appDir: true,
+//   },
+//   output: 'export',
+//   distDir: 'dist'
+// }
+
+// module.exports = nextConfig
