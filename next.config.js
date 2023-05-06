@@ -4,7 +4,7 @@ let assetPrefix = ''
 let basePath = '/'
 
 if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+  const repo = 'pi-2-entrega'
 
   assetPrefix = `/${repo}/`
   basePath = `/${repo}`
