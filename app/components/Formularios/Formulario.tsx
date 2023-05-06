@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.css';
 import RadioBtn from './RadioBtn';
-import { useState } from 'react';
+import { useState } from "react";
 
 function Formulario(props) {
     return (props.tipo === 'login') ? Login() : Cadastro()
