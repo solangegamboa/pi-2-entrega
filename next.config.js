@@ -1,7 +1,7 @@
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 
 let assetPrefix = ''
-let basePath = '/'
+let basePath = ''
 
 if (isGithubActions) {
   const repo = 'pi-2-entrega'
@@ -11,6 +11,9 @@ if (isGithubActions) {
 }
 
 module.exports = {
+  experimental: {
+    appDir: true
+  },
   assetPrefix: assetPrefix,
   basePath: basePath,
 }
