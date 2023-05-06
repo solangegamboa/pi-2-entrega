@@ -36,5 +36,6 @@ jobs:
         # https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
+          token: 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
           branch: gh-pages
           folder: out
