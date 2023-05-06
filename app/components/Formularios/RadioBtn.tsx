@@ -2,15 +2,8 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 
-export default function RadioBtn() {
+export default function RadioBtn(props) {
     const [pessoa, setPessoa] = useState("");
-
-    /**
-    * 
-    * - Fornecedor
-    * Nome fantasia
-    * CNPJ
-    */
 
     return (
         <div>

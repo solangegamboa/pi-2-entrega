@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NavGeral from "./components/Nav";
 
 export const metadata = {
-    title: 'Projeto Integrador - 2',
+    title: 'Projeto Integrador - 2, Primeiro semestre',
     description: 'Fluxo do sistema',
 }
 

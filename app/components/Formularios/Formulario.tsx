@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.css';
 import RadioBtn from './RadioBtn';
+import { useState } from 'react';
 
 function Formulario(props) {
     return (props.tipo === 'login') ? Login() : Cadastro()
@@ -11,6 +12,8 @@ function Formulario(props) {
 
 function Login() {
     const router = useRouter();
+    const [pessoa, setPessoa] = useState("")
+
     return (
         <Form className='form'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -23,7 +26,13 @@ function Login() {
                 <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={() => router.push('/dashboard')}>
+            <div key={`inline-radio`} className="mb-3">
+                <Form.Check inline label="Professor" name="pessoa" type='radio' id={`inline-radio-1`} value="professor" checked={pessoa === 'professor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
+                <Form.Check inline label="Aluno" name="pessoa" type='radio' id={`inline-radio-2`} value="aluno" checked={pessoa === 'aluno'} onChange={(e) => setPessoa(e.currentTarget.value)} />
+                <Form.Check inline label="Fornecedor" name="pessoa" type='radio' id={`inline-radio-3`} value="fornecedor" checked={pessoa === 'fornecedor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
+            </div>
+
+            <Button variant="primary" type="submit" onClick={() => router.push(`/dashboard/${pessoa}`)}>
                 Login
             </Button>
         </Form >
