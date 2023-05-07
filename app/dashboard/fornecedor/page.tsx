@@ -12,7 +12,7 @@ export default function Page() {
             <h2 className="title">Área do Fornecedor</h2>
             <CardGroup>
                 {cards.map((card, index) => {
-                    return <Cards title={card.title} text={card.text} image={card.image} slug={card.slug} id={"card-" + index}></Cards>
+                    return <Cards title={card.title} text={card.text} image={card.image} slug={card.slug} id={"card-" + index} key={index}></Cards>
                 })}
             </CardGroup>
         </Container>

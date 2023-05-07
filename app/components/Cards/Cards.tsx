@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 function Cards(props) {
     const router = useRouter();
     return (
-        <Card style={{ width: '18rem' }} className='cards'>
+        <Card style={{ width: '18rem' }} className='cards' id={props.id}>
             <Card.Img variant="top" src={props.image} />
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>

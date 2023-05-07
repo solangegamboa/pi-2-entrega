@@ -7,7 +7,16 @@ import RadioBtn from './RadioBtn';
 import { useState } from "react";
 
 function Formulario(props) {
-    return (props.tipo === 'login') ? Login() : Cadastro()
+    switch (props.tipo) {
+        case 'login':
+            return Login();
+        case 'cadastro_nota':
+            return CadadastrarNota();
+        case 'cadastro_aula':
+            return CadadastrarAula();
+        default:
+            return Cadastro();
+    }
 }
 
 function Login() {
@@ -32,7 +41,10 @@ function Login() {
                 <Form.Check inline label="Fornecedor" name="pessoa" type='radio' id={`inline-radio-3`} value="fornecedor" checked={pessoa === 'fornecedor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
             </div>
 
-            <Button variant="primary" type="submit" onClick={() => router.push(`/dashboard/${pessoa}`)}>
+
+            <Button variant="primary" type="submit" onClick={() => {
+                router.push(`/dashboard/${pessoa}`)
+            }}>
                 Login
             </Button>
         </Form >
@@ -66,5 +78,73 @@ function Cadastro() {
         </Form>
     );
 }
+
+function CadadastrarNota() {
+    return (
+        <Form>
+            <Form.Group className='mb-6'>
+                <Form.Label>Turma</Form.Label>
+                <Form.Select aria-label="Selecione uma Turma">
+                    <option value="Turma 1">Turma 1</option>
+                    <option value="Turma 2">Turma 2</option>
+                    <option value="Turma 3">Turma 3</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-6'>
+                <Form.Label>Avaliação</Form.Label>
+                <Form.Select aria-label="Selecione uma Avaliação">
+                    <option value="Avaliação 1">Avaliação 1</option>
+                    <option value="Avaliação 2">Avaliação 2</option>
+                    <option value="Avaliação 3">Avaliação 3</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-12'>
+                <Form.Label>Aluno</Form.Label>
+                <Form.Select aria-label="Selecione um Aluno">
+                    <option value="Aluno 1">Aluno 1</option>
+                    <option value="Aluno 2">Aluno 2</option>
+                    <option value="Aluno 3">Aluno 3</option>
+                </Form.Select>
+            </Form.Group>
+
+            <Form.Group className='mb-12'>
+                <Form.Label>Nota</Form.Label>
+                <Form.Control type="text" placeholder="Entre com a nota decimal" />
+            </Form.Group>
+
+            <Button variant="primary" type="button">
+                Cadastrar
+            </Button>
+        </Form >
+    );
+}
+
+function CadadastrarAula() {
+    return (
+        <Form>
+            <Form.Group className='mb-6'>
+                <Form.Label>Turma</Form.Label>
+                <Form.Select aria-label="Selecione uma Turma">
+                    <option value="Turma 1">Turma 1</option>
+                    <option value="Turma 2">Turma 2</option>
+                    <option value="Turma 3">Turma 3</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-6'>
+                <Form.Label>Data</Form.Label>
+                <Form.Control type="date" />
+            </Form.Group>
+            <Form.Group className='mb-12'>
+                <Form.Label>Anotações</Form.Label>
+                <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+
+            <Button variant="primary" type="button">
+                Cadastrar
+            </Button>
+        </Form >
+    );
+}
+
 
 export default Formulario;
