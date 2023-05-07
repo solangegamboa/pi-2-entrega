@@ -22,7 +22,7 @@ export default function Page() {
             <h2 className="title">Notas</h2>
             <div>
                 <h3>Notas Cadastradas</h3>
-                <Lista headers={notasCadastradas.headers} items={notasCadastradas.items}></Lista>
+                <Lista headers={notasCadastradas.headers} items={notasCadastradas.items} tipo="notas"></Lista>
             </div>
             <div>
                 <Accordion>

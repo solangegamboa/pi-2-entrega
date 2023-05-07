@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  // trailingSlash: true
+  trailingSlash: true
 }
 
 module.exports = nextConfig;

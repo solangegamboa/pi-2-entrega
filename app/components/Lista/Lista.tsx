@@ -43,7 +43,7 @@ function handleItems(tipo, item, index) {
                 <td>{item.local}</td>
             </tr>)
     } else {
-        <tr key={index}>
+        return <tr key={index}>
             <td>{item.turma}</td>
             <td>{item.avaliacao}</td>
             <td>{item.aluno}</td>
