@@ -1,5 +1,10 @@
 import React from "react";
+import Formulario from "../../../components/Formularios/Formulario";
 
 export default function Page() {
-    return <h1>Form dar nota</h1>;
+    return (
+        <>
+            <Formulario tipo="nota_professor"></Formulario>
+        </>
+    )
 }
