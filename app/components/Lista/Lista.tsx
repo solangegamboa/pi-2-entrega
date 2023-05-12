@@ -4,38 +4,23 @@ import { Nav, Table } from "react-bootstrap";
 
 
 
-export default function Lista(props) {
-    return (
-        <>
-            <Table>
-                <thead>
-                    <tr>
-                        {props.headers.map((header, index) => {
-                            return <th key={index}>{header}</th>
-                        })}
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.items.map((item, index) => {
-                        return handleItems(props.tipo, item, index);
-                    }, props)}
-                </tbody>
-            </Table>
-        </>
-    )
-}
-
-function handleItems(tipo, item, index) {
+export default function Lista({tipo, items, headers, handleDelete }) {
+    
+    function formatItems(tipo, item, handleDelete) {
     if (tipo === 'aula') {
-        return <tr key={index}>
+        return <tr key={item.id}>
             <td>{item.turma}</td>
             <td>{item.dataAula}</td>
             <td>{item.anotacao}</td>
-            <td><button>Apagar</button> </td>
+            <td>
+                <button value={item.id}
+                    onClick={handleDelete}
+                >Apagar</button>
+            </td>
         </tr>
     } else if (tipo === 'aula_estudante') {
         return (
-            <tr key={index}>
+            <tr key={item.id}>
                 <td>{item.disciplina}</td>
                 <td>{item.nome}</td>
                 <td>{item.dataAula}</td>
@@ -43,7 +28,7 @@ function handleItems(tipo, item, index) {
                 <td>{item.local}</td>
             </tr>)
     } else {
-        return <tr key={index}>
+        return <tr key={item.id}>
             <td>{item.turma}</td>
             <td>{item.avaliacao}</td>
             <td>{item.aluno}</td>
@@ -51,4 +36,25 @@ function handleItems(tipo, item, index) {
             <td><button>Apagar</button> </td>
         </tr>
     }
+    }
+    
+    return (
+        <>
+            <Table>
+                <thead>
+                    <tr>
+                        {headers.map((header, index) => {
+                            return <th key={index}>{header}</th>
+                        })}
+                    </tr>
+                </thead>
+                <tbody>
+                    {items.map((item) => {
+                        return formatItems(tipo, item, handleDelete);
+                    }, items)}
+                </tbody>
+            </Table>
+        </>
+    )
 }
+

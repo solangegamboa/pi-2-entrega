@@ -13,7 +13,7 @@ function Formulario(props) {
         case 'cadastro_nota':
             return CadadastrarNota();
         case 'cadastro_aula':
-            return CadadastrarAula();
+            return CadadastrarAula(props);
         default:
             return Cadastro();
     }
@@ -119,12 +119,12 @@ function CadadastrarNota() {
     );
 }
 
-function CadadastrarAula() {
+function CadadastrarAula(props) {
     return (
-        <Form>
+        <Form onSubmit={props.handleAdd}>
             <Form.Group className='mb-6'>
                 <Form.Label>Turma</Form.Label>
-                <Form.Select aria-label="Selecione uma Turma">
+                <Form.Select aria-label="Selecione uma Turma" name="turma">
                     <option value="Turma 1">Turma 1</option>
                     <option value="Turma 2">Turma 2</option>
                     <option value="Turma 3">Turma 3</option>
@@ -132,14 +132,16 @@ function CadadastrarAula() {
             </Form.Group>
             <Form.Group className='mb-6'>
                 <Form.Label>Data</Form.Label>
-                <Form.Control type="date" />
+                <Form.Control type="date" name="date" />
+                <Form.Label>Hora</Form.Label>
+                <Form.Control type="time" name="time"/>
             </Form.Group>
             <Form.Group className='mb-12'>
                 <Form.Label>Anotações</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" rows={3} name="anotacoes"/>
             </Form.Group>
 
-            <Button variant="primary" type="button">
+            <Button variant="primary" type="submit">
                 Cadastrar
             </Button>
         </Form >

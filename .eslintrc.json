@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "standard",
+        "plugin:@next/next/recommended",
+        "next",
+        "plugin:prettier/recommended"
+    ],
+    "overrides": [],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+        "no-duplicate-imports": ["error", { "includeExports": true }]
+    }
+}
