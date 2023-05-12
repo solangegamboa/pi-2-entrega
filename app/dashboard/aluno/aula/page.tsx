@@ -17,9 +17,12 @@ export default function Page() {
 
     let [disciplina, setDisciplina] = useState('');
 
-    const handleAula = (e) => {
-        setDisciplina(e.currentTarget.value)
-        setAulas(aulas.filter(a => a.disciplina == e.currentTarget.value))
+    const handleAula = (disciplina) => {
+        if (disciplina !== '') {
+            return aulas.filter(a => a.disciplina == disciplina)
+        } else {
+            return aulas
+        }
     }
     const handleDelete = () => {}
     return (
@@ -32,13 +35,13 @@ export default function Page() {
                 <h3>Aulas Cadastradas</h3>
                 <div className="respiro">
                     <Form.Label><strong>Disciplina</strong></Form.Label>
-                    <Form.Select onChange={handleAula}>
+                    <Form.Select onChange={(e) => setDisciplina(e.currentTarget.value)}>
                         <option value="">Escolha a Disciplina</option>
                         <option value="Disciplina 1">Disciplina 1</option>
                         <option value="Disciplina 2">Disciplina 2</option>
                     </Form.Select>
                 </div>
-                <Lista headers={headers} items={aulas} tipo="aula_estudante" handleDelete={handleDelete}></Lista>
+                <Lista headers={headers} items={handleAula(disciplina)} tipo="aula_estudante" handleDelete={handleDelete}></Lista>
             </div>
         </Container>
     )

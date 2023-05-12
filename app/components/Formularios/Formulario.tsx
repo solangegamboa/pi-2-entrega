@@ -44,7 +44,7 @@ function Login() {
                 <Form.Check inline label="Aluno" name="pessoa" type='radio' id={`inline-radio-2`} value="aluno" checked={pessoa === 'aluno'} onChange={(e) => setPessoa(e.currentTarget.value)} />
             </div>
 
-
+            
             <Button variant="primary" type="submit">
                 Login
             </Button>
