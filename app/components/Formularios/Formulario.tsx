@@ -23,28 +23,29 @@ function Login() {
     const router = useRouter();
     const [pessoa, setPessoa] = useState("")
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        router.push(`/dashboard/${pessoa}`)
+    }
     return (
-        <Form className='form'>
+        <Form className='form' onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>E-mail</Form.Label>
-                <Form.Control type="email" placeholder="Entre com seu e-mail" />
+                <Form.Control type="email" placeholder="Entre com seu e-mail" required/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Senha</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="Password" required/>
             </Form.Group>
 
             <div key={`inline-radio`} className="mb-3">
-                <Form.Check inline label="Professor" name="pessoa" type='radio' id={`inline-radio-1`} value="professor" checked={pessoa === 'professor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
+                <Form.Check inline label="Professor" name="pessoa" type='radio' id={`inline-radio-1`} value="professor" checked={pessoa === 'professor'} onChange={(e) => setPessoa(e.currentTarget.value)} required/>
                 <Form.Check inline label="Aluno" name="pessoa" type='radio' id={`inline-radio-2`} value="aluno" checked={pessoa === 'aluno'} onChange={(e) => setPessoa(e.currentTarget.value)} />
-                <Form.Check inline label="Fornecedor" name="pessoa" type='radio' id={`inline-radio-3`} value="fornecedor" checked={pessoa === 'fornecedor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
             </div>
 
 
-            <Button variant="primary" type="submit" onClick={() => {
-                router.push(`/dashboard/${pessoa}`)
-            }}>
+            <Button variant="primary" type="submit">
                 Login
             </Button>
         </Form >

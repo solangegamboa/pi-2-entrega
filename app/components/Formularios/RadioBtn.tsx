@@ -10,7 +10,6 @@ export default function RadioBtn(props) {
             <div key={`inline-radio`} className="mb-3">
                 <Form.Check inline label="Professor" name="pessoa" type='radio' id={`inline-radio-1`} value="professor" checked={pessoa === 'professor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
                 <Form.Check inline label="Aluno" name="pessoa" type='radio' id={`inline-radio-2`} value="aluno" checked={pessoa === 'aluno'} onChange={(e) => setPessoa(e.currentTarget.value)} />
-                <Form.Check inline label="Fornecedor" name="pessoa" type='radio' id={`inline-radio-3`} value="fornecedor" checked={pessoa === 'fornecedor'} onChange={(e) => setPessoa(e.currentTarget.value)} />
             </div>
 
             <div className={(pessoa === 'professor' || pessoa === 'aluno') ? "" : "d-none"}>
@@ -49,18 +48,6 @@ export default function RadioBtn(props) {
                 <Form.Group className="mb-3" controlId="formBasicCurso">
                     <Form.Label>Curso</Form.Label>
                     <Form.Control type="text" placeholder="Curso" />
-                </Form.Group>
-            </div>
-
-            <div className={(pessoa === 'fornecedor') ? "" : "d-none"}>
-                <Form.Group className="mb-3" controlId="formBasicNomeFantasia">
-                    <Form.Label>Nome Fantasia</Form.Label>
-                    <Form.Control type="text" placeholder="Nome Fantasia" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicCNPJ">
-                    <Form.Label>CNPJ</Form.Label>
-                    <Form.Control type="text" placeholder="CNPJ" />
                 </Form.Group>
             </div>
         </div>
