@@ -33,7 +33,11 @@ export default function Lista({tipo, items, headers, handleDelete }) {
             <td>{item.avaliacao}</td>
             <td>{item.aluno}</td>
             <td>{item.nota}</td>
-            <td><button>Apagar</button> </td>
+            <td>
+                <button value={item.id}
+                    onClick={handleDelete}
+                >Apagar</button>
+            </td>
         </tr>
     }
     }

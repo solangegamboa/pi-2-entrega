@@ -16,7 +16,6 @@ export default function Page() {
 
     const handleDelete = (e) => {
         const id = e.target.value
-        console.log(id)
         const aulasDelete = aulas.filter(aula => aula.id != id)
         setAulas(aulasDelete)
         setAlerta({variant: 'danger', msg: 'Registro Deletado com sucesso'})

@@ -11,7 +11,7 @@ function Formulario(props) {
         case 'login':
             return Login();
         case 'cadastro_nota':
-            return CadadastrarNota();
+            return CadadastrarNota(props);
         case 'cadastro_aula':
             return CadadastrarAula(props);
         default:
@@ -79,12 +79,12 @@ function Cadastro() {
     );
 }
 
-function CadadastrarNota() {
+function CadadastrarNota(props) {
     return (
-        <Form>
+        <Form onSubmit={props.handleAdd}>
             <Form.Group className='mb-6'>
                 <Form.Label>Turma</Form.Label>
-                <Form.Select aria-label="Selecione uma Turma">
+                <Form.Select aria-label="Selecione uma Turma" name="turma">
                     <option value="Turma 1">Turma 1</option>
                     <option value="Turma 2">Turma 2</option>
                     <option value="Turma 3">Turma 3</option>
@@ -92,7 +92,7 @@ function CadadastrarNota() {
             </Form.Group>
             <Form.Group className='mb-6'>
                 <Form.Label>Avaliação</Form.Label>
-                <Form.Select aria-label="Selecione uma Avaliação">
+                <Form.Select aria-label="Selecione uma Avaliação" name="avaliacao">
                     <option value="Avaliação 1">Avaliação 1</option>
                     <option value="Avaliação 2">Avaliação 2</option>
                     <option value="Avaliação 3">Avaliação 3</option>
@@ -100,7 +100,7 @@ function CadadastrarNota() {
             </Form.Group>
             <Form.Group className='mb-12'>
                 <Form.Label>Aluno</Form.Label>
-                <Form.Select aria-label="Selecione um Aluno">
+                <Form.Select aria-label="Selecione um Aluno" name="aluno">
                     <option value="Aluno 1">Aluno 1</option>
                     <option value="Aluno 2">Aluno 2</option>
                     <option value="Aluno 3">Aluno 3</option>
@@ -109,10 +109,10 @@ function CadadastrarNota() {
 
             <Form.Group className='mb-12'>
                 <Form.Label>Nota</Form.Label>
-                <Form.Control type="text" placeholder="Entre com a nota decimal" />
+                <Form.Control type="number" min="0" max="10" step=".1" placeholder="Entre com a nota decimal" name="nota"/>
             </Form.Group>
 
-            <Button variant="primary" type="button">
+            <Button variant="primary" type="submit">
                 Cadastrar
             </Button>
         </Form >
