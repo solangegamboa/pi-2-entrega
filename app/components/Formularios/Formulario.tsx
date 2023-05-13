@@ -6,6 +6,7 @@ import './style.css';
 import RadioBtn from './RadioBtn';
 import { useState } from "react";
 
+
 function Formulario(props) {
     switch (props.tipo) {
         case 'login':
@@ -14,6 +15,8 @@ function Formulario(props) {
             return CadadastrarNota(props);
         case 'cadastro_aula':
             return CadadastrarAula(props);
+        case 'solicitacao':
+            return CadastroSolicitacao(props);
         default:
             return Cadastro();
     }
@@ -147,6 +150,41 @@ function CadadastrarAula(props) {
             </Button>
         </Form >
     );
+}
+
+function CadastroSolicitacao(props) {
+    return (
+        <Form onSubmit={props.handleAdd}>
+            <Form.Group className='mb-6'>
+                <Form.Label>Tipo de solicitação</Form.Label>
+                <Form.Select aria-label="Tipo de solicitação" name="tipo">
+                    <option value="Atividade">Atividade</option>
+                    <option value="Texto">Texto</option>
+                    <option value="Livro">Livro</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-12'>
+                <Form.Label>Título</Form.Label>
+                <Form.Control placeholder="Entre com o título para material solicitado" name="titulo" required/>
+            </Form.Group>
+            <Form.Group className='mb-6'>
+                <Form.Label>Disciplina</Form.Label>
+                <Form.Select aria-label="Disciplina" name="disciplina">
+                    <option value="Disciplina 1">Disciplina 1</option>
+                    <option value="Disciplina 2">Disciplina 2</option>
+                    <option value="Disciplina 3">Disciplina 3</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-12'>
+                <Form.Label>E-mail para envio</Form.Label>
+                <Form.Control type="email" placeholder="Entre com seu e-mail" required/>
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+                Cadastrar
+            </Button>
+        </Form >
+    )
 }
 
 

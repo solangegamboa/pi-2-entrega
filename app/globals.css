@@ -12,3 +12,8 @@
     color: blue;
     pointer-events: painted;
 }
+
+.canceled {
+    text-decoration: line-through;
+    background-color: lightcoral;
+}
